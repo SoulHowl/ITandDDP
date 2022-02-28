@@ -89,7 +89,8 @@ namespace UdpClientApp
                         throw new ArgumentException("Error , message wasnt coreectly delivered");
                     }*/
                     var t1 = DateTime.Now; 
-                    while (DateTime.Now.Ticks - t1.Ticks < 3000)
+                    while ((DateTime.Now.Ticks - t1.Ticks) / 10000 < 3)
+                    { }
                     if (!(gotMes == gotDate && gotMes == gotNum && gotNum))
                     {
                             Console.WriteLine("your message wasnt sent due to timeout");
