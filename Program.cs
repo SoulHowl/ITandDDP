@@ -129,7 +129,7 @@ namespace UdpClientApp
                     var num = BitConverter.ToInt32(data);
                     if (num > 0 && num < int.MaxValue - 1)
                     {
-                        gotNum = !gotNum;
+                        gotNum = true;
                     }
                     //sender.Send(acceptAndSend, data.Length, remoteAddress, remotePort);
                     receiver.Client.ReceiveTimeout = 1000;
@@ -140,7 +140,7 @@ namespace UdpClientApp
                     var date = Encoding.Unicode.GetString(data);
                     if (!(date is null))
                     {
-                        gotDate = !gotDate;
+                        gotDate = true;
                     }
                     //sender.Send(acceptAndSend, data.Length, remoteAddress, remotePort);
 
@@ -150,7 +150,7 @@ namespace UdpClientApp
                     //sender.Send(acceptAndSend, data.Length, remoteAddress, remotePort);
                     if (message != null)
                     {
-                        gotMes = !gotMes;
+                        gotMes = true;
                     }
                     receiver.Client.ReceiveTimeout = default;
                     var finalMessage = string.Format("{0}:({1}) - {2} \t\t {3}\n", remoteAddress.ToString(),
