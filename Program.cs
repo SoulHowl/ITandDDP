@@ -17,13 +17,16 @@ namespace UdpClientApp
 
         static int number = 0;
         static List<bool> messagesOrder;
-        static List<string> messages;
+        static List<string> myMessages;
 
         static bool gotNum = false;
         static bool gotDate = false;
         static bool gotMes = false;
 
-        static int timeDel = 3;
+        static bool mesStatusTaken = false;
+        static bool mesStatusSent = false;
+
+        static int lostMes = -1;
         static void Main(string[] args)
         {
             try
@@ -34,14 +37,18 @@ namespace UdpClientApp
                 remoteAddress = Console.ReadLine();
                 Console.Write("Введите порт для подключения: ");
                 remotePort = Int32.Parse(Console.ReadLine());
-                messages = new List<string>();
-                messagesOrder = new List<bool>(); 
+                myMessages = new List<string>();
+                messagesOrder = new List<bool>() { false }; 
+
 
                 Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
                 receiveThread.Start();
                 Thread sendThread = new Thread(new ThreadStart(SendMessage));
                 sendThread.Start();
-                //SendMessage(); // отправляем сообщение
+
+                Thread ansThread = new Thread(new ThreadStart(AnswerToCalls));
+                ansThread.Start();
+               
             }
             catch (Exception ex)
             {
@@ -51,52 +58,72 @@ namespace UdpClientApp
         private static void SendMessage()
         {
             UdpClient sender = new UdpClient();
-            //UdpClient receiver = new UdpClient(localPort);
+            
             try
             {
                 while (true)
                 {
-                    //sender.Client.ReceiveTimeout = 3000;
-                    string message = Console.ReadLine();
-                    number++;
-                    byte[] recieveData;
-                    byte[] messageNumber = new byte[1];
-                    messageNumber[0] =  Convert.ToByte(number);
+                    
+                    byte[] lostData;
+                    byte[] messageNumber;
                     byte[] timeOfRecievedMes;
+
+                    if (lostMes != -1)
+                    {
+                        messageNumber = BitConverter.GetBytes(lostMes);
+                        timeOfRecievedMes = Encoding.Unicode.GetBytes(DateTime.Now.ToString());
+                        lostData = Encoding.Unicode.GetBytes(myMessages[lostMes]);
+                        sender.Send(lostData, lostData.Length, remoteAddress, remotePort);
+                        sender.Send(messageNumber, messageNumber.Length, remoteAddress, remotePort);
+                        sender.Send(timeOfRecievedMes, timeOfRecievedMes.Length, remoteAddress, remotePort);
+                    }
+                    
+
+                    string message = Console.ReadLine();
+
+                   
+                    number++;
+                    
+                    messageNumber = BitConverter.GetBytes(number);
                     timeOfRecievedMes = Encoding.Unicode.GetBytes(DateTime.Now.ToString());
                     byte[] data = Encoding.Unicode.GetBytes(message);
 
+                    myMessages.Add(message);
 
-                    sender.Send(timeOfRecievedMes, timeOfRecievedMes.Length, remoteAddress, remotePort);
-                    /*recieveData = receiver.Receive(ref remoteIp);
-                    string answer = Encoding.Unicode.GetString(recieveData);
-                    if (answer != "num accepted")
+                    while (true)
                     {
-                        throw new ArgumentException("Seems like one of prev messages were lost");
-                    }*/
+                        
+                            sender.Send(data, data.Length, remoteAddress, remotePort);
+                            sender.Send(messageNumber, messageNumber.Length, remoteAddress, remotePort);
+                            sender.Send(timeOfRecievedMes, timeOfRecievedMes.Length, remoteAddress, remotePort);
+                       
+                        
 
-                    sender.Send(messageNumber, messageNumber.Length, remoteAddress, remotePort);
-                    /*recieveData = receiver.Receive(ref remoteIp);
-                    if (answer != "date accepted")
-                    {
-                        throw new ArgumentException("Seems like something's gone wrong during sending");
-                    }*/
-
-                    sender.Send(data, data.Length, remoteAddress, remotePort);
-                    /*recieveData = receiver.Receive(ref remoteIp);
-                    if (answer != "mes accepted")
-                    {
-                        throw new ArgumentException("Error , message wasnt coreectly delivered");
-                    }*/
-                    var t1 = DateTime.Now; 
-                    while (DateTime.Now.Ticks - t1.Ticks < 3000)
-                    if (!(gotMes == gotDate && gotMes == gotNum && gotNum))
-                    {
-                            Console.WriteLine("your message wasnt sent due to timeout");
+                        mesStatusSent = true;
+                        Thread.Sleep(2000);
+                        if (mesStatusSent)
+                        {
+                            Console.WriteLine($"\nyour message wasnt sent due to some occasions\n" +
+                                "We are goint ot resend it...\n");
+                        }
+                        else 
+                        {
+                           
                             gotDate = false;
                             gotMes = false;
                             gotNum = false;
+                            if (lostMes != -1)
+                            {
+                                lostMes = -1;
+                            }
+
+                            break;
+                        }
                     }
+                    
+                    
+                 
+                    
                 }
             }
             catch (Exception ex)
@@ -107,61 +134,72 @@ namespace UdpClientApp
             finally
             {
                 sender.Close();
-                //receiver.Close();
             }
         }
 
         private static void ReceiveMessage()
         {
             UdpClient receiver = new UdpClient(localPort);
-            //UdpClient sender = new UdpClient(remotePort);
+           
             IPEndPoint? remoteIp = null;
             try
             {
-
-
                 while (true)
                 {
-                    //receiver.Client.ReceiveTimeout = 3000;
                     
-                    byte[] acceptAndSend = Encoding.Unicode.GetBytes("num accepted");
-                    byte[] data = receiver.Receive(ref remoteIp);
-                    var num = BitConverter.ToInt32(data);
-                    if (num > 0 && num < int.MaxValue - 1)
-                    {
-                        gotNum = true;
-                    }
-                    //sender.Send(acceptAndSend, data.Length, remoteAddress, remotePort);
-                    receiver.Client.ReceiveTimeout = 1000;
-                    acceptAndSend = Encoding.Unicode.GetBytes("date accepted");
-                    data = receiver.Receive(ref remoteIp);
-                    
-
-                    var date = Encoding.Unicode.GetString(data);
-                    if (!(date is null))
-                    {
-                        gotDate = true;
-                    }
-                    //sender.Send(acceptAndSend, data.Length, remoteAddress, remotePort);
-
-                    acceptAndSend = Encoding.Unicode.GetBytes("mes accepted");
-                    data = receiver.Receive(ref remoteIp);
+                    byte[] data = receiver.Receive(ref remoteIp);                   
                     string message = Encoding.Unicode.GetString(data);
-                    //sender.Send(acceptAndSend, data.Length, remoteAddress, remotePort);
-                    if (message != null)
+                    if (message == "#data accepted#")
                     {
-                        gotMes = true;
+                        Console.WriteLine("\n#MESSAGE WAS DELIVERED#\n");
+                        mesStatusSent = false;
                     }
-                    receiver.Client.ReceiveTimeout = default;
-                    var finalMessage = string.Format("{0}:({1}) - {2} \t\t {3}\n", remoteAddress.ToString(),
-                                                    num, message, DateTime.Now);
-                    if (messagesOrder.Count == 0 || messagesOrder[num - 1] is true)
+                    else
                     {
-                        Console.WriteLine(finalMessage);
-                    }                
-                    messagesOrder.Add(true);
-                    messages.Add(finalMessage);
-                            
+                        if (message != null)
+                        {
+                            gotMes = true;
+                        }
+                        
+
+                        data = receiver.Receive(ref remoteIp);
+                        var num = BitConverter.ToInt32(data, 0);      
+                        if (num == messagesOrder.Count)
+                        {
+                            gotNum = true;
+                        }
+                        else if (num > messagesOrder.Count)
+                        {
+                            lostMes = messagesOrder.Count;
+                        }
+                        
+  
+                        data = receiver.Receive(ref remoteIp);
+                        var date = Encoding.Unicode.GetString(data);
+                        if (!(date is null))
+                        {
+                            gotDate = true;
+                        }
+                        
+                        
+
+                        if (gotMes == gotDate && gotMes == gotNum && gotNum)
+                        {
+                            gotDate = false;
+                            gotMes = false;
+                            gotNum = false;
+                            mesStatusTaken = true;
+                            var finalMessage = string.Format("\n{0}: ({1}) {2} - \t{3}\n", "Companion",
+                                                        num, DateTime.Now, message);
+                            if (messagesOrder.Count == 1 || messagesOrder[num - 2] is true)
+                            {
+                                Console.WriteLine(finalMessage);
+                            }
+                           
+                            messagesOrder[num - 1] = true;
+                            messagesOrder.Add(false);
+                        }                       
+                    }        
                 }
             }
             catch (Exception ex)
@@ -170,8 +208,38 @@ namespace UdpClientApp
             }
             finally
             {
-                receiver.Close();
-                //sender.Close();
+                receiver.Close(); 
+            }
+        }
+
+        private static void AnswerToCalls()
+        {
+            UdpClient sender = new UdpClient();      
+            try
+            {
+                while (true)
+                {
+                    //Console.WriteLine("Answer linew works");
+                    Thread.Sleep(1000);
+                    while(!mesStatusTaken)
+                    { }
+                    if (mesStatusTaken)
+                    {
+                        //Console.WriteLine("DELIVERING ANSWER");
+                        byte[] answer = Encoding.Unicode.GetBytes("#data accepted#");
+                        sender.Send(answer, answer.Length, remoteAddress, remotePort);
+                        mesStatusTaken = false;
+                        
+                    } 
+                }
+            }
+            catch (Exception ex)
+            {           
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                sender.Close();
             }
         }
     }
