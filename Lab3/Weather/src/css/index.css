@@ -1,0 +1,85 @@
+*{
+    background-color: #1eaa59;
+}
+
+body{
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+
+
+.wrapper-main{
+    height: available;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.upper{
+    display: flex;
+    flex-direction: row;
+}
+
+.lower{
+    display: flex;
+    flex-direction: row;
+}
+.temperature{
+    display: flex;/*!!!!!!!!!!!!!!!!!!!!!*/
+    position: relative;
+    margin-top: 30px;
+    margin-left: 20px;
+    width: 600px;
+    height: 280px;
+    border-radius: 50px;
+    /*background-color: #05c4f3;*/
+
+}
+
+.find{
+    margin-top: 30px;
+    margin-left: 450px;
+    width: 600px;
+    height: 140px;
+    border-radius: 50px;
+    background-color: #1eaa59;
+
+
+}
+
+.humidity{
+
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 400px;
+    width: 400px;
+    border-radius: 50px;
+    background-color: #05c4f3;
+}
+
+.pressure{
+    margin-top: 20px;
+    margin-left: 230px;
+    height: 400px;
+    width: 400px;
+    border-radius: 50px;
+    background-color: #05c4f3;
+}
+
+.wind{
+    margin-top: 20px;
+    margin-left: 220px;
+
+    height: 400px;
+    width: 400px;
+    border-radius: 50px;
+    background-color: #05c4f3;
+}
+
+form{
+
+}

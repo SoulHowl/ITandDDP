@@ -1,0 +1,30 @@
+*{
+    background-color: #1eaa59;
+}
+body{
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+}
+/*#windy #bottom,
+#windy #mobile-ovr-select,
+#windy #embed-zoom {
+    display: none !important;
+}
+
+#windy #logo-wrapper {
+    top: initial;
+    bottom: 65px;
+}
+
+#windy #logo-wrapper #logo {
+    left: 80px;
+}*/
+
+.interactive-map
+{
+    padding: 100px;
+    position: relative;
+    margin: 0 auto;
+    width: fit-content;
+}

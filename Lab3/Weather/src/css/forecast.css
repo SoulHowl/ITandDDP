@@ -1,0 +1,96 @@
+*{
+    background-color: #1eaa59;
+}
+
+body{
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+}
+
+.forecast-table{
+    position: relative;
+    margin-top: 50px;
+}
+.table-names{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.table-names *{
+    margin: 0;
+    padding: 0;
+}
+.table-names ul,
+.table-names ol{
+    list-style: none;
+}
+
+.table-names > ul{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin:0 auto;
+}
+
+.table-names > ul li{
+    position: center;
+    border-right: 1px solid #c7c8ca;
+}
+
+.table-names > ul li:first-child > a{
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.table-names > ul li:last-child > a{
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.table-names > ul li:last-child{
+    border-right: 0px solid #babbbd;
+}
+
+.table-names > ul li > a i.fa{
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    font-size: 18px;
+}
+
+.table-names > ul li a{
+    display: block;
+    background: linear-gradient(to bottom,  rgba(201,201,201,1) 0%,rgba(246,246,246,1) 2%,rgba(196,197,199,1) 98%,rgba(117,117,119,1) 100%);
+    padding: 30px 60px;
+    font-size: 14px;
+    color: #454547;
+}
+
+.container{
+    position: relative;
+    margin: 0 auto;
+    width: 68%;
+    background-color: #ffb600;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.date-dmy{
+    display: block;
+    position: absolute;
+    width: 96%;
+    background-color: #ff1e42;
+    left: 50%;
+    margin-left: -48%;
+    height: 70px;
+    border-radius: 25px;
+}
+
+.inner-forecast{
+    list-style-type: none;
+    margin-left: -28px;
+}
+
