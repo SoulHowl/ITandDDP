@@ -54,3 +54,4 @@ API, which could be used:
 <h1> lab3 </h1>:
 Main pages of weather website,
 some designes of dashboards have been slightly changed
+link: https://soulhowl.github.io
