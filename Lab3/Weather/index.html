@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width">-->
+
     <link rel="stylesheet" type="text/css" href="src/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="src/css/find.css"/>
     <link rel="stylesheet" type="text/css" href="src/css/navbar.css"/>
@@ -22,7 +24,7 @@
             <li><a href="#"></i>Coming Soon</a></li>
             <li><a href="#"></i>More</a>
                 <ul>
-                    <li><a href="#">Account</a></li>
+                    <li><a href="auth.html">Account</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </li>
@@ -32,20 +34,21 @@
 <section class="wrapper-main">
     <section class="upper">
         <section class="temperature">
-
             <article class="widget">
-                <div class="time">
-                    <h6>12:12</h6></div>
+
                 <div class="weatherIcon"></div>
                 <div class="weatherData">
-                    <h1 class="temperature-1">25&deg;</h1>
-                    <h2 class="description">Partly Cloudy</h2>
-                    <h3 class="city">Tirana, Albania</h3>
+                    <p class="temperature-1">25&deg;</p>
+                    <p class="description">Partly Cloudy</p>
+                    <p class="city">Tirana, Albania</p>
                 </div>
                 <div class="date">
-                    <h4 class="month" id="month">Month</h4>
-                    <h5 class="day" id="day">99</h5>
+                    <p class="month" id="month">Month</p>
+                    <p class="day" id="day">99</p>
                 </div>
+                <time>
+                    <p>12:12</p>
+                </time>
             </article>
 
         </section>
@@ -69,8 +72,7 @@
                 </div>
                 <div class="outer">
                 </div>
-                <div class="numb">
-                    100%</div>
+                <p class="numb">100%</p>
                 <div class="circle">
                     <div class="dot">
                         <span></span>
@@ -88,7 +90,9 @@
         </section>
         <section class="pressure">
             <div class="with-digits">
-                <div class="upper-digit"><h3 class="upper-d">18</h3></div>
+                <div class="upper-digit">
+                    <p class="upper-d">18</p>
+                </div>
                 <div class="gauge-wrapper">
                     <div class="gauge four rischio3">
                         <div class="slice-colors">

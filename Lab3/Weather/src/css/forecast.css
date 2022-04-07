@@ -8,7 +8,7 @@ body{
     height: 100vh;
 }
 
-.forecast-table{
+/*.forecast-table{
     position: relative;
     margin-top: 50px;
 }
@@ -92,5 +92,5 @@ body{
 .inner-forecast{
     list-style-type: none;
     margin-left: -28px;
-}
+}*/
 

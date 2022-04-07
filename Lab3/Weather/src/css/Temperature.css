@@ -7,7 +7,7 @@
     font-size: 18px;
 }
 
-h1, h2, .city, h4, h5 {
+.temperature-1, .description, .city, .month, .day {
     font-weight: normal;
     margin: 0;
     padding: 0;
@@ -25,7 +25,7 @@ h1, h2, .city, h4, h5 {
     transform: translate(-50%, -50%);
 }
 
-.time{
+time{
     /*z-index: 5;*/
     background-color: #fff100;
     height:  70%;
@@ -75,7 +75,7 @@ h1, h2, .city, h4, h5 {
     border-bottom-right-radius: 10px;
 }
 
-h1 {
+.temperature-1 {
     color: #c5cdcf;
     font-family: 'Open Sans';
     font-weight: 200;
@@ -88,7 +88,7 @@ h1 {
 }
 
 
-h2 {
+.description {
     color: #8f9b9d;
     font-family: 'Open Sans';
     font-weight: 200;
@@ -110,7 +110,7 @@ h2 {
     left: 27%;
 }
 
-h4 {
+.month{
     color: #fff;
     font-family: 'Open Sans';
     font-weight: 700;
@@ -123,7 +123,7 @@ h4 {
     transform: translate(-50%, 0);
 }
 
-h5 {
+.day {
     color: #fff;
     font-family: 'Open Sans';
     font-weight: 500;
@@ -136,7 +136,7 @@ h5 {
     transform: translate(-50%, 0);
 }
 
-h6 {
+time >p{
     background-color: rgba(0, 0, 0, 0);
     color: #000000;
     font-family: 'Open Sans';
@@ -145,7 +145,7 @@ h6 {
     line-height: 2.9375em;
     position: relative;
     /*left: 6%;*//*!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-    bottom: 31%;
+    top : 15%;
     margin-left: 6%;
     transform: translate(0, -50%);
 }
@@ -158,4 +158,140 @@ h6 {
     right: 0;
     bottom: 0;
     border-bottom-right-radius: 10px;
+}
+
+@media (max-device-width:370px) {
+    /*.temperature {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 6px;
+    }
+
+    .widget {
+        z-index: 10;
+        height: 100px;
+        width: 150px;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .weatherIcon{
+        background-color: #f0f8fa;
+        height: 70%;
+        width: 50%;
+        position: absolute;
+        left: 75px;
+        top: 0;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 10px;
+    }
+
+    .weatherIcon:before{
+        display: block;
+        content:"\f002";
+        color: #818b8d;
+        font-family: weathericons;
+        font-size: 40px;
+        position: absolute;
+        left: 50%;
+        top: 58%;
+        transform: translate(-50%, -50%);
+    }
+
+    .weatherData {
+        background-color: #2e3336;
+        height: 30%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .temperature-1 {
+        color: #c5cdcf;
+        font-family: 'Open Sans';
+        font-weight: 200;
+        font-size: 2.9375em;
+        line-height: 2.9375em;
+        position: absolute;
+        left: 6%;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+
+    .description {
+        color: #8f9b9d;
+        font-family: 'Open Sans';
+        font-weight: 200;
+        font-size: 1.4875em;
+        line-height: 1.1875em;
+        position: absolute;
+        top: 24%;
+        left: 27%;
+    }
+
+    .city {
+        color: #c5cdcf;
+        font-family: 'Open Sans';
+        font-weight: 400;
+        font-size: 1.2125em;
+        line-height: 0.8125em;
+        position: absolute;
+        bottom: 25%;
+        left: 27%;
+    }
+
+    .month{
+        color: #fff;
+        font-family: 'Open Sans';
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9875em;
+        line-height: 0.6875em;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .day {
+        color: #fff;
+        font-family: 'Open Sans';
+        font-weight: 500;
+        font-size: 1.9125em;
+        line-height: 12px;
+        position: absolute;
+        bottom: 24%;
+        left: 50%;
+
+        transform: translate(-50%, 0);
+    }
+
+    time >p{
+        background-color: rgba(0, 0, 0, 0);
+        color: #000000;
+        font-family: 'Open Sans';
+        font-weight: 100;
+        font-size: 1.4em;
+        line-height: 2.9375em;
+        position: relative;
+
+        top : 15%;
+        margin-left: 6%;
+        transform: translate(0, -50%);
+    }
+
+    .date {
+        background-color: #4dbde2;
+        height: 30%;
+        width: 22%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-bottom-right-radius: 10px;
+    }*/
 }

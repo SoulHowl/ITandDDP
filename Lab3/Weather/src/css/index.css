@@ -6,25 +6,28 @@ body{
     margin: 0px;
     width: 100%;
     height: 100vh;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 }
 
 
 
 .wrapper-main{
     height: available;
-    position: absolute;
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .upper{
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
 
 .lower{
+    flex-shrink: 1;
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
@@ -42,7 +45,7 @@ body{
 
 .find{
     margin-top: 30px;
-    margin-left: 450px;
+    margin-left: 250px;
     width: 600px;
     height: 140px;
     border-radius: 50px;
@@ -52,9 +55,8 @@ body{
 }
 
 .humidity{
-
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 95px;
     height: 400px;
     width: 400px;
     border-radius: 50px;
@@ -63,7 +65,7 @@ body{
 
 .pressure{
     margin-top: 20px;
-    margin-left: 230px;
+    margin-left: 170px;
     height: 400px;
     width: 400px;
     border-radius: 50px;
@@ -72,14 +74,90 @@ body{
 
 .wind{
     margin-top: 20px;
-    margin-left: 220px;
-
+    margin-left: 170px;
     height: 400px;
     width: 400px;
     border-radius: 50px;
     background-color: #05c4f3;
 }
 
-form{
+@media (max-device-width:420px) {
+    .wrapper-main{
+        height: available;
+        position: relative;
+        width: 370px;
+        display: flex;
+        flex-direction: column;
+    }
 
+    .upper{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .lower{
+        flex-shrink: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    /*.temperature{
+        display: flex;
+        position: absolute;
+        margin-top: 30px;
+        margin-left: -10px;
+        width: 200px;
+        height: 95px;
+        border-radius: 50px;
+
+
+    }*/
+
+    .find{
+        margin-top: 30px;
+        margin-left: 0px;
+        width: 600px;
+        height: 140px;
+        border-radius: 50px;
+        background-color: #1eaa59;
+
+
+    }
+
+    .humidity{
+        /*margin-top: -35px;
+        margin-left: 10px;
+        height: 160px;
+        width: 160px;*/
+        border-radius: 50px;
+        background-color: #05c4f3;
+        margin-top: 40px;
+        margin-left: 10px;
+        height: 400px;
+        width: 400px;
+
+    }
+
+    .pressure{
+        /*margin-top: -160px;
+        margin-left: 180px;
+        height: 160px;
+        width: 180px;*/
+        border-radius: 25px;
+        background-color: #05c4f3;
+        margin-top: -400px;
+        margin-left: 560px;
+        height: 400px;
+        width: 400px;
+    }
+
+    .wind{
+        margin-top: 220px;
+        margin-left: 280px;
+        height: 400px;
+        width: 400px;
+        border-radius: 50px;
+        background-color: #05c4f3;
+    }
 }

@@ -1,16 +1,3 @@
-
-
-/*html,
-body {
-    display: grid;
-    height: 100%;
-    text-align: center;
-    place-items: center;
-
-}*/
-/*.circular *{
-
-}*/
 .circular {
     background-color: rgba(0, 0, 0, 0);
     height: 400px;
@@ -142,4 +129,91 @@ body {
         transform: rotate(270deg);
         z-index: 4;
     }
+}
+
+@media (max-device-width:370px) {
+    /*.circular {
+        background-color: rgba(0, 0, 0, 0);
+        height: 160px;
+        width: 160px;
+        position: relative;
+    }
+
+    .circular .inner,
+    .circular .outer,
+    .circular .circle {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        z-index: 6;
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+        box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .circular .inner {
+        top: 50%;
+        left: 50%;
+        height: 128px;
+        width: 128px;
+        margin: -64px 0 0 -64px;
+        background-color: #ffffff;
+        border-radius: 100%;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .circular .circle {
+        z-index: 1;
+        box-shadow: none;
+    }
+
+    .circular .numb {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        font-size: 12px;
+        font-weight: 500;
+        color: #0027fc;
+    }
+
+    .circular .bar {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #93a6cb;
+        -webkit-border-radius: 100%;
+        clip: rect(0px, 160px, 160px, 80px);
+    }
+
+    .circle .bar .progress {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        -webkit-border-radius: 100%;
+        clip: rect(0px, 80px, 160px, 0px);
+    }
+
+    .circle .dot {
+        background-color: rgba(0, 0, 0, 0);
+        z-index: 2;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 50%;
+        height: 6px;
+        margin-top: -4px;
+        animation: dot 8s linear both;
+        transform-origin: 0% 50%;
+    }
+
+    .circle .dot span {
+        position: absolute;
+        right: 0;
+        width: 16px;
+        height: 4px;
+        border-radius: 100%;
+    }*/
 }
