@@ -17,12 +17,13 @@ below them.
 
 <h3>Main Functions</h3>
 
-1)live wallpaper
-2)displaying current weather state
-3)forecast for week
-4)automatic detection of users ip and selection of region 
-5)choosing of region
-6-9)dashboards:
+1)live wallpaper 
+2)changing the wallpaper depending on  weather state
+3)displaying current weather state
+4)forecast for week
+5)automatic detection of users ip and selection of region 
+6)choosing of region
+7-10)dashboards:
 a) wind
 b) humidity
 c) temperature
@@ -48,6 +49,7 @@ users model
 - pass
 - nick
 - region
+
 API, which could be used:
 - openweather
 - windy
