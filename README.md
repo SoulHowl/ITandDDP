@@ -15,16 +15,14 @@ forecast predictions. You can check weather forecast (like temperature, wind dir
 for current time , for a day or for some days. If you passed authorisation, you might posting weather phenomenon pictures with a comment
 below them. 
 
-<h3>Main Functions(what is it?)</h3>
+<h3>Main Functions</h3>
 
-1)interactive map
-2)live wallpaper
-3)picture posting
-4)displaying current weather state
-5)forecast for week
-6)automatic detection of users ip and selection of region 
-7)choosing of region
-8-11)dashboards:
+1)live wallpaper
+2)displaying current weather state
+3)forecast for week
+4)automatic detection of users ip and selection of region 
+5)choosing of region
+6-9)dashboards:
 a) wind
 b) humidity
 c) temperature
@@ -40,12 +38,6 @@ simple weather forecast model
 - time
 - state
 
-post model
-- picture
-- comment
-- authour
-- time
-
 weather state model
 - type
 - logo
@@ -59,3 +51,7 @@ users model
 API, which could be used:
 - openweather
 - windy
+<h1> lab3 </h1>:
+Main pages of weather website,
+some designes of dashboards have been slightly changed
+link: https://soulhowl.github.io
