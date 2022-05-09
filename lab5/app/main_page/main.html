@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--meta http-equiv="refresh" content="60"-->
+    <!--<meta name="viewport" content="width=device-width">-->
+    <link rel="stylesheet" type="text/css" href="./css/widgets/round.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/widgets/find.css"/>
+    <link rel="stylesheet" type="text/css" href="../all/navbar.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/widgets/Temperature.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/widgets/MainPressure.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/widgets/MainHumidity.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/NewWind.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/widgets/Wind.css"/>
+
+    <!--Background files-->
+    <link rel="stylesheet" type="text/css" href="./css/phenomenon/clouds.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/phenomenon/sunny.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/phenomenon/night.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/phenomenon/rain.css"/>
+    <!--Background files-->
+    <title>Title</title>
+</head>
+<body>
+<section id="1234" class="wallpaper">
+    <!--canvas id="canvas"></canvas-->
+
+</section>
+
+
+<header>
+    <nav class="dws-menu">
+        <div class="logo"><a href="main.html"><img src="../all/img/weblogo.jpg" height="40" width="150"></a></div>
+        <ul>
+            <li><a href="../forecast_page/forecast.html">3-day forecast</a></li>
+            <li><a href="../map_page/Map.html">Map</a></li>
+            <li><a href="#"></i>Coming Soon</a></li>
+            <li><a href="#"></i>More</a>
+                <ul>
+                    <li><a href="../user_page/user.html">Account</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<section class="wrapper-main">
+    <section class="upper">
+        <section class="temperature">
+            <article class="widget">
+
+                <div id="weather_icon" class="weatherIcon">
+                    <div id="w_icon" class="temperature_icon"></div>
+                </div>
+                <div class="weatherData">
+                    <p id="temperature" class="temperature-1">25&deg;</p>
+                    <p id="weather_state" class="description">Partly Cloudy</p>
+                    <p id="city" class="city">Minsk, Belarus</p>
+                </div>
+                <div class="date">
+                    <p class="month" id="month">Month</p>
+                    <p class="day" id="day">99</p>
+                </div>
+                <time>
+                    <p id="date">12:12</p>
+                </time>
+            </article>
+        </section>
+        <script type="text/javascript" src="../js/time.js"></script>
+        <section class="find">
+            <section class="top-banner">
+                <div class="container">
+                    <form>
+                        <input type="text" placeholder="Search for a city" autofocus>
+                        <button type="submit">SUBMIT</button>
+                        <span class="msg"></span>
+                    </form>
+                </div>
+            </section>
+
+        </section>
+    </section>
+    <section class="lower">
+        <section class="humidity">
+            <div class="container">
+                <div class="circular-progress">
+                    <div class="value-container">0%</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pressure">
+            <div class="with-digits">
+                <div class="upper-digit">
+                    <p class="upper-d">21</p>
+                </div>
+                <div class="gauge-wrapper">
+                    <div class="gauge four rischio3">
+                        <div class="slice-colors">
+                            <div class="st slice-item"></div>
+                            <div class="st slice-item"></div>
+                            <div class="st slice-item"></div>
+                            <div class="st slice-item"></div>
+                        </div>
+                        <div id="needle" class="needle"></div>
+                        <div class="gauge-center">
+                            <div class="label">inHg</div>
+                            <div id="number" class="number">26.78</div>
+                        </div>
+                    </div>
+                    <small><a class="NameP">Pressure</a></small>
+                </div>
+                <div class="lower-digit"><h3 class="left-d">0</h3> <h3 class="right-d">42</h3></div>
+            </div>
+        </section>
+
+        <section class="wind">
+            <div class="container-1">
+                <div class="compass">
+                    <div class="direction">
+                        <p id="direction">S
+                            <span id="w_strength" class="mph">
+                                10 mph
+                            </span>
+                        </p>
+                    </div>
+                    <div id="arrrow" class="arrow s"></div>
+                    <div class="directions">
+                        <div class="E">
+                            <p>E</p>
+                        </div>
+                        <div class="W">
+                            <p>W</p>
+                        </div>
+                        <div class="S">
+                            <p>S</p>
+                        </div>
+                        <div class="N">
+                            <p>N</p>
+                        </div>
+                    </div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="cover"></div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+</section>
+
+<script type="text/javascript" src="./js/widgets/Temperature.js"></script>
+<script type="text/javascript" src="./js/widgets/Humidity.js"></script>
+<script type="text/javascript" src="./js/widgets/Pressure.js"></script>
+<script type="text/javascript" src="./js/widgets/Wind.js"></script>
+
+
+<script type="module" src="../all/api/openweatherapi.js"></script>
+<script type="module" src="./js/Current_weather.js"></script>
+<script type="text/javascript" src="./js/Paper_changer.js"></script>
+
+<script type="text/javascript" src="./js/phenomenon/clouds.js"></script>
+<script type="text/javascript" src="./js/phenomenon/sunny.js"></script>
+<script type="text/javascript" src="./js/phenomenon/night.js"></script>
+<script type="text/javascript" src="./js/phenomenon/rain.js"></script>
+</body>
+</html>

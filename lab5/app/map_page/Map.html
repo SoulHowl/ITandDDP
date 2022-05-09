@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../all/navbar.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/Map.css"/>
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+  <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<header>
+  <nav class="dws-menu">
+    <div class="logo"><a href="../main_page/main.html"><img src="../all/img/weblogo.jpg" height="40" width="150"></a></div>
+    <ul>
+      <li><a href="../forecast_page/forecast.html">3-day forecast</a></li>
+      <li><a href="Map.html">Map</a></li>
+      <li><a href="#">Coming Soon</a></li>
+      <li><a href="#">More</a>
+        <ul>
+          <li><a href="../user_page/user.html">Account</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+<section class="interactive-map">
+  <iframe width="1400" height="550" src="https://embed.windy.com/embed2.html?lat=53.901&lon=27.571&detailLat=53.901&detailLon=27.571&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+</section>
+</body>
+</html>
