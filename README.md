@@ -69,7 +69,7 @@ link: https://soulhowl.github.io
 
 <h1> lab5 </h1>:
 
-Added authorization/authentication functionality working with Farebase API (folder all/api)
+Added authorization functionality working with Farebase API (folder all/api)
 - Used in user_page/js, auth_page/js
 
 Added weather data collection functionality working with OpenWeatherMap API (folder all/api)
