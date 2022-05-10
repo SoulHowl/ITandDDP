@@ -11,7 +11,7 @@ function change_wallPaper(state)
 
         if (i >= 9)
         {void(document.styleSheets.item(i).disabled=true);}}
-    var myDdte = new Date()
+    let myDdte = new Date()
     let hours = myDdte.getHours()
     //console.log("Works")
     if (hours > 6 && hours < 22)

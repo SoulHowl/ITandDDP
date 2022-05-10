@@ -1,21 +1,19 @@
-
-
 function setup_rain()
 {
-    var canvas = document.getElementById('canvas_rain');
-    var ctx = canvas.getContext('2d');
+    let canvas = document.getElementById('canvas_rain');
+    let ctx = canvas.getContext('2d');
 
 
-    var stgw = 1900//1280;
-    var stgh = 820;
+    let stgw = 1900//1280;
+    let stgh = 820;
 
 
-    var loffset = 0;
-    var toffset = 0;
+    let loffset = 0;
+    let toffset = 0;
 
     function _pexresize() {
-        var cw = window.innerWidth;
-        var ch = window.innerHeight;
+        let cw = window.innerWidth;
+        let ch = window.innerHeight;
         if (cw<=ch*stgw/stgh) {
             loffset = 0;
             toffset = Math.floor(ch-(cw*stgh/stgw))/2;
@@ -32,20 +30,20 @@ function setup_rain()
     }
     _pexresize();
 
-    var count = 100;
-    var lcount = 6;
+    let count = 100;
+    let lcount = 6;
 
-    var layer = [];
-    var layery = [];
+    let layer = [];
+    let layery = [];
 
     ctx.fillStyle = "rgba(255,255,255,0.5)";
-    for (var l=0;l<lcount;l++) {
+    for (let l=0;l<lcount;l++) {
         ctx.clearRect(0,0,stgw,stgh);
-        for (var i=0;i<count*(lcount-l)/1.5;i++) {
-            var myx = Math.floor(Math.random()*stgw);
-            var myy = Math.floor(Math.random()*stgh);
-            var myh = l*6+8;
-            var myw = myh/10;
+        for (let i=0;i<count*(lcount-l)/1.5;i++) {
+            let myx = Math.floor(Math.random()*stgw);
+            let myy = Math.floor(Math.random()*stgh);
+            let myh = l*6+8;
+            let myw = myh/10;
             ctx.beginPath();
             ctx.moveTo(myx,myy);
             ctx.lineTo(myx+myw,myy+myh);
@@ -61,14 +59,14 @@ function setup_rain()
 
 
 
-    var stt = 0;
-    var str = Date.now()+Math.random()*4000;
-    var stact = false;
+    let stt = 0;
+    let str = Date.now()+Math.random()*4000;
+    let stact = false;
 
     function animate() {
         ctx.clearRect(0,0,stgw,stgh);
 
-        for (var l=0;l<lcount;l++) {
+        for (let l=0;l<lcount;l++) {
             layery[l] += (l+1.5)*5;
             if (layery[l]>stgh) {
 
@@ -83,9 +81,9 @@ function setup_rain()
         if (stact) {
             stt++;
             if (stt<5+Math.random()*10) {
-                var ex = stt/30;
+                let ex = stt/30;
             } else {
-                var ex = (stt-10)/30;
+                let ex = (stt-10)/30;
             }
             if (stt>20) {
                 stt = 0;

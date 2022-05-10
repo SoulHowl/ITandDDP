@@ -1,8 +1,8 @@
-var months = ["January", "February", "March", "April", "May", "June",
+let months = ["January", "February", "March", "April", "May", "June",
     "July", "Augest", "September", "October", "November", "December"];
 function update_time()
 {
-    var myDate = new Date();
+    let myDate = new Date();
     let h = ""
     let m = ""
     if(myDate.getMinutes() < 10)

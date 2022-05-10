@@ -2,7 +2,7 @@
     if (typeof window.CustomEvent === "function") return false;
     function CustomEvent(event, params) {
         params = params || { bubbles: false, cancelable: false, detail: null };
-        var evt = document.createEvent('CustomEvent');
+        let evt = document.createEvent('CustomEvent');
         evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
         return evt;
     }
@@ -10,7 +10,7 @@
 })();
 
 $modal = function (options) {
-    var
+    let
         _elemModal,
         _eventShowModal,
         _eventHideModal,
@@ -19,7 +19,7 @@ $modal = function (options) {
         _animationSpeed = 200;
 
     function _createModal(options) {
-        var
+        let
             elemModal = document.createElement('div'),
             modalTemplate = '<div class="modal__backdrop" data-dismiss="modal"><div class="modal__content"><div class="modal__header"><div class="modal__title" data-modal="title">{{title}}</div><span class="modal__btn-close" data-dismiss="modal" title="Закрыть">×</span></div><div class="modal__body" data-modal="content">{{content}}</div>{{footer}}</div></div>',
             modalFooterTemplate = '<div class="modal__footer">{{buttons}}</div>',
@@ -32,8 +32,8 @@ $modal = function (options) {
         modalHTML = modalTemplate.replace('{{title}}', options.title || 'Simple Wind rose, according to latest data');
         modalHTML = modalHTML.replace('{{content}}', options.content || rose);
         if (options.footerButtons) {
-            for (var i = 0, length = options.footerButtons.length; i < length; i++) {
-                var modalFooterButton = modalButtonTemplate.replace('{{button_class}}', options.footerButtons[i].class);
+            for (let i = 0, length = options.footerButtons.length; i < length; i++) {
+                let modalFooterButton = modalButtonTemplate.replace('{{button_class}}', options.footerButtons[i].class);
                 modalFooterButton = modalFooterButton.replace('{{button_handler}}', options.footerButtons[i].handler);
                 modalFooterButton = modalFooterButton.replace('{{button_text}}', options.footerButtons[i].text);
                 modalFooterHTML += modalFooterButton;

@@ -2,9 +2,9 @@ function make_clouds()
 {
     if (typeof Object.extend !== 'function') {
         Object.extend = function (d, s) {
-            for (var k in s) {
+            for (let k in s) {
                 if (s.hasOwnProperty(k)) {
-                    var v = s[k];
+                    let v = s[k];
                     if (d.hasOwnProperty(k) && typeof d[k] === "object" && typeof v === "object") {
                         Object.extend(d[k], v);
                     } else {
@@ -17,7 +17,7 @@ function make_clouds()
     }
 
     function Cloud(properties) {
-        var defaults = {
+        let defaults = {
             puffRadius: 32,
             puffColor: {
                 r: 255,
@@ -41,10 +41,10 @@ function make_clouds()
         });
         this.img = document.createElement('canvas');
         this.ctx = this.img.getContext('2d');
-        for (var i = 0; i < this.count; i++) {
-            var seed = Math.random();
-            var x = seed * (properties.puffRadius + seed) * Math.cos(1 + i + seed) * Math.PI;
-            var y = seed * (properties.puffRadius + seed) * Math.sin(1 + i + seed) * Math.PI / 2;
+        for (let i = 0; i < this.count; i++) {
+            let seed = Math.random();
+            let x = seed * (properties.puffRadius + seed) * Math.cos(1 + i + seed) * Math.PI;
+            let y = seed * (properties.puffRadius + seed) * Math.sin(1 + i + seed) * Math.PI / 2;
             this.minX = Math.min(this.minX, x - properties.puffRadius);
             this.maxX = Math.max(this.maxX, x + properties.puffRadius);
             this.minY = Math.min(this.minY, y - properties.puffRadius);
@@ -61,9 +61,9 @@ function make_clouds()
             return obj.r + ',' + obj.g + ',' + obj.b;
         }
         this.img = document.createElement('canvas');
-        var context = this.img.getContext('2d');
+        let context = this.img.getContext('2d');
         this.img.height = this.img.width = properties.radius * 2;
-        var grad = context.createRadialGradient(properties.radius, properties.radius, 0, properties.radius, properties.radius, properties.radius);
+        let grad = context.createRadialGradient(properties.radius, properties.radius, 0, properties.radius, properties.radius, properties.radius);
         grad.addColorStop(0, 'rgba(' + color(properties.color) + ',' + properties.opacity + ')');
         grad.addColorStop(1, 'rgba(' + color(properties.color) + ',0)');
         context.fillStyle = grad;
@@ -75,15 +75,15 @@ function make_clouds()
     Cloud.prototype = {
         constructor: Cloud,
         render: function () {
-            var cX = this.img.width / 2 - this.puff.img.width / 2,
+            let cX = this.img.width / 2 - this.puff.img.width / 2,
                 cY = this.img.height / 2 - this.puff.img.height / 2;
-            for (var i = 0; i < this.count; i++) {
+            for (let i = 0; i < this.count; i++) {
                 this.ctx.drawImage(this.puff.img, cX + this.points[i][0], cY + this.points[i][1]);
             }
         }
     };
 
-    var canvas = document.getElementById('canvas_cl'),
+    let canvas = document.getElementById('canvas_cl'),
         context = canvas.getContext('2d'),
         height = canvas.height = document.body.offsetHeight,
         width = canvas.width = document.body.offsetWidth,
@@ -94,8 +94,8 @@ function make_clouds()
     setTimeout(init, 10);
     function init() {
         console.log("CLOUDS START")
-        for (var i = 0; i < cloudCount; i++) {
-            var count = Math.random() * 64 + 32,
+        for (let i = 0; i < cloudCount; i++) {
+            let count = Math.random() * 64 + 32,
                 rad = Math.random() * 32 + 32,
                 cloud = new Cloud({
                     count: count,
@@ -113,7 +113,7 @@ function make_clouds()
     }
 
     function update() {
-        for (var i = 0; i < cloudCount; i++) {
+        for (let i = 0; i < cloudCount; i++) {
             if (clouds[i].x + clouds[i].img.width < 0) {
                 clouds[i].x = width + clouds[i].img.width;
             } else {
@@ -126,7 +126,7 @@ function make_clouds()
     function render() {
         requestAnimationFrame(render);
         context.clearRect(0, 0, width, height);
-        for (var i = 0; i < cloudCount; i++) {
+        for (let i = 0; i < cloudCount; i++) {
             context.drawImage(clouds[i].img, clouds[i].x - clouds[i].img.width / 2, clouds[i].y - clouds[i].img.height / 2);
         }
         context.beginPath();
