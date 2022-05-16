@@ -2,7 +2,7 @@ import React from 'react';
 import {useAuth} from "../all/api/useAuth";
 import Load from "../loading/loading";
 
-function Map() {
+const Map=()=> {
     const { pending, isSignedIn, user, auth} = useAuth()
     if(isSignedIn){
         console.log("First")

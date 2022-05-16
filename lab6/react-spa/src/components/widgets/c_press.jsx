@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 
 
-function C_press(props2) {
+const C_press = (props2)=> {
     const [pres, setPres] = useState("23");
     function update_pressure_widget(pres)
     {

@@ -3,7 +3,7 @@ import { login, signUp} from "../all/api/firebase";
 import {useAuth} from "../all/api/useAuth";
 import User from "../user/c_user";
 
-function Auth() {
+const Auth=()=> {
     const {isSignedIn} = useAuth()
     const email = useRef("dsf");
     const password = useRef("asdfs");

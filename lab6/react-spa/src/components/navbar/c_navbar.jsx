@@ -25,7 +25,7 @@ import {BrowserRouter as Router,
     Routes,
     Link} from "react-router-dom";
 
-function Navbar() {
+const Navbar=()=> {
 
     return (
         <Router>

@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 
 
-function C_find() {
+const C_find = () => {
     return (
         <section className="top-banner">
             <div className="container-find">

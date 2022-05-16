@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 
 
-function C_temp(props) {
+const C_temp=(props) => {
     const [date, setDate] = useState("");
     const [month, setMonth] = useState("");
     const [day, setDay] = useState("");

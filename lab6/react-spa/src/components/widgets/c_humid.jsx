@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 
 
-function C_humid(props1) {
+const C_humid=(props1)=> {
     const [pers, setPer] = useState("0%");
     function update_widget_humidity(percentage)
     {

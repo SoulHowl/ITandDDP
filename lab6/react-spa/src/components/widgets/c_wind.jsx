@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 
 
-function C_wind(props3) {
+const C_wind=(props3)=> {
     const [wind_str, setWstr] = useState("0MPS");
     function update_wind_widget(strength, dir)
     {

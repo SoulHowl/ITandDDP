@@ -5,7 +5,7 @@ import {get_three_days_wind, get_wind_data} from "../all/api/openweatherapi";
 import Forecast from "./c_forecast";
 
 
-const C_dialog=()=> {
+const C_dialog = ()=>{
     const [not_close, setClose] = useState(true);
     function CloseModal(){
         setClose(!not_close)

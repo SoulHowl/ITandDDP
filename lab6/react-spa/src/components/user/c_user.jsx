@@ -3,7 +3,7 @@ import {useAuth} from "../all/api/useAuth";
 import { logout} from "../all/api/firebase";
 import Load from "../loading/loading";
 
-function User() {
+const User=()=> {
     const {isSignedIn} = useAuth()
     const [mail,setMail] = useState("Not loaded")
     const [country,setCountry] = useState("Not loaded")

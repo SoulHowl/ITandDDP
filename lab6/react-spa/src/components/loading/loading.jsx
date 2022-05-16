@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Load() {
+const Load=()=> {
 
         return (
             <div id="main-content" className="user-page">
