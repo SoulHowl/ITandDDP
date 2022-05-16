@@ -21,49 +21,6 @@ const auth = getAuth();
 const user = auth.currentUser;
 
 
-// const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
-// const auth = getAuth();
-
-
-// async function apiLogin(email, password){
-//     try {
-//         return await auth.signInWithEmailAndPassword(email, password);
-//     }
-//     catch(error) {
-//         console.error(`Couldn't signin: ${error}`);
-//     }
-//
-// }
-//
-// async function apiSignUp(email, password){
-//     try {
-//         const new_response = await auth.createUserWithEmailAndPassword(email, password);
-//         console.log("new response", new_response.user.uid)
-//         console.log("CREATE:",new_response)
-//         const docref = db.collection('users').doc(new_response.user.uid);
-//
-//         await docref.set({
-//             email:email,
-//             password:password,
-//             country:"None",
-//             city:"None"
-//         });
-//         return new_response;
-//     }
-//     catch(error) {
-//         console.error(`Couldn't signup: ${error}`);
-//     }
-// }
-//
-// function logout(){
-//     auth.signOut().then(() => {
-//         alert('Sign-out successful');
-//         window.location.replace("auth.html");
-//     }).catch((error) => {
-//         alert(error)
-//     });
-// }
 
 const login = async(email, password) =>{
     let response = await signInWithEmailAndPassword(auth, email, password)
@@ -90,5 +47,5 @@ const signUp = async(email, password) =>{
     })
     return response;
 }
-//export {apiLogin, apiSignUp, logout, db, auth, collection, doc}
+
 export {user, login, signUp, logout, db, auth, collection}
