@@ -1,0 +1,6 @@
+.forecast-page, .map-page, .user-page {
+    background-color: #e4f35e;
+    width: 100%;
+    height: 100vh;
+    overflow-y:hidden;
+}
