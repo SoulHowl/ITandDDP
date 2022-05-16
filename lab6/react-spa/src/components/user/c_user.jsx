@@ -27,24 +27,24 @@ function User() {
     },[])
     if (isSignedIn){
 
-    return (
+        return (
 
-        <div id="main-content" className="user-page">
+            <div id="main-content" className="user-page">
 
-    <section className="wrapper-user">
-        <form className="form-user" >
-            <div className="text-lg" id="email_info"><p>{mail}</p></div>
-            <div className="text-lg" id="country"><p>{country}</p></div>
-            <div className="text-lg" id="city"><p>{city}</p></div>
-            <section className="button-group-user">
+                <section className="wrapper-user">
+                    <form className="form-user" >
+                        <div className="text-lg" id="email_info"><p>{mail}</p></div>
+                        <div className="text-lg" id="country"><p>{country}</p></div>
+                        <div className="text-lg" id="city"><p>{city}</p></div>
+                        <section className="button-group-user">
 
-                <button className="text-logout" id="logout" type="submit" onClick={logoutt}>Log out</button>
+                            <button className="text-logout" id="logout" type="submit" onClick={logoutt}>Log out</button>
 
-            </section>
-        </form>
-    </section>
-        </div>
-    );
+                        </section>
+                    </form>
+                </section>
+            </div>
+        );
     }else{
         return <Load />
 
