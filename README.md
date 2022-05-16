@@ -39,15 +39,9 @@ simple weather forecast model
 - time
 - state
 
-weather state model
-- type
-- logo
-- wallpaper
-
 users model
 - mail
 - pass
-- nick
 - region
 
 API, which could be used:
@@ -57,3 +51,28 @@ API, which could be used:
 Main pages of weather website,
 some designes of dashboards have been slightly changed
 link: https://soulhowl.github.io
+
+
+<h1> lab4 </h1>:
+expected functions
+
+![alt text](https://github.com/SoulHowl/ITandDDP/blob/checkbranch/lab4tasks.png "functions")
+
+small review:
+- added functions which fill weather widgets with input data (function - show current weather state) - folder widgets
+- added function which setups current time
+- added code of some live wallpaper(for exaple: there were added wallpaper for rainy,sunny,cloudy weather and day state - day and night) - (function - live wallppaper) Note: each walppaer code was wrapped with function body , so they won't conflict with each other - folder phenomenon
+- added function of wind dashboard - drawing wind rose (function - wind dashboard) - files rose,.js and draw_rose.js
+Next time (lab5) i will add authorising with firebase API and gather weather data with openweathermap API
+
+link: https://soulhowl.github.io
+
+<h1> lab5 </h1>:
+
+Added authorization functionality working with Farebase API (folder all/api)
+- Used in user_page/js, auth_page/js
+
+Added weather data collection functionality working with OpenWeatherMap API (folder all/api)
+- Used in forecast_page/js/rose_draw, main_page/js/Current_weather
+
+link: https://weather-8b64a.web.app/

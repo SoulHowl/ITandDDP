@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/unauth.css"/>
+    <title>SFffdsf</title>
+    <script src="https://www.gstatic.com/firebasejs/9.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+ <section class="wrapper">
+    <section class="background">
+    </section>
+     <form class="form-1" >
+         <input class="text-lg" id="email" type="email" placeholder="Input email">
+         <input class="text-lg" id="password" type="password" placeholder="Input password">
+         <section class="button-group">
+             <!--button class="text-x1" id="signup" type="submit" onclick="loginToFirebase();">Sign up</button-->
+             <button class="text-x1" id="signup" type="submit" >Sign up</button>
+             <button class="text-x1" id="login" type="submit" >Log in</button>
+         </section>
+     </form>
+ </section>
+</body>
+
+<script type="module" src="../all/api/firebase_module.js"></script>
+<script type="module" src="./js/auth.js"></script>
+
+</html>

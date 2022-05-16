@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../all/navbar.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/auth.css"/>
+    <script src="https://www.gstatic.com/firebasejs/9.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+<header>
+    <nav class="dws-menu">
+        <div class="logo"><a href="../main_page/main.html"><img src="../all/img/weblogo.jpg" height="40" width="150"></a></div>
+        <ul>
+            <li><a href="../forecast_page/forecast.html">3-day forecast</a></li>
+            <li><a href="../map_page/Map.html">Map</a></li>
+            <li><a href="#"></i>Coming Soon</a></li>
+            <li><a href="#"></i>More</a>
+                <ul>
+                    <li><a href="user.html">Account</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<section class="wrapper">
+    <form class="form-1" >
+        <div class="text-lg" id="email_info"><p>Error</p></div>
+        <div class="text-lg" id="country"><p>Error</p></div>
+        <div class="text-lg" id="city"><p>Error</p></div>
+        <section class="button-group">
+            <!--button class="text-x1" id="signup" type="submit" onclick="loginToFirebase();">Sign up</button-->
+            <button class="text-x1" id="logout" type="submit" >Log out</button>
+
+        </section>
+    </form>
+</section>
+<script type="module" src="../all/api/openweatherapi.js"></script>
+<script type="module" src="./js/unauth.js"></script>
+</body>
+</html>
