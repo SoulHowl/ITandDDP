@@ -66,3 +66,13 @@ small review:
 Next time (lab5) i will add authorising with firebase API and gather weather data with openweathermap API
 
 link: https://soulhowl.github.io
+
+<h1> lab5 </h1>:
+
+Added authorization functionality working with Farebase API (folder all/api)
+- Used in user_page/js, auth_page/js
+
+Added weather data collection functionality working with OpenWeatherMap API (folder all/api)
+- Used in forecast_page/js/rose_draw, main_page/js/Current_weather
+
+link: https://weather-8b64a.web.app/
