@@ -1,7 +1,8 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useState, useMemo} from 'react';
+import {get_current_weather} from "../all/api/openweatherapi";
 
 
-const C_humid=(props1)=> {
+const Humid=()=> {
     const [pers, setPer] = useState("0%");
     function update_widget_humidity(percentage)
     {
@@ -13,7 +14,7 @@ const C_humid=(props1)=> {
 
         let progress = setInterval(() => {
             progressValue++;
-            //valueContainer.textContent = `C_humid ${progressValue}%`;
+            //valueContainer.textContent = `Humid ${progressValue}%`;
             setPer(`Humid ${progressValue}%`);
             progressBar.style.background = `conic-gradient(
       #4d5bf9 ${progressValue * 3.6}deg,
@@ -24,11 +25,23 @@ const C_humid=(props1)=> {
             }
         }, speed);
     }
+    const var1 = useMemo(()=>"some",[]);
+    function update_weather(current)
+    {
+        update_widget_humidity( current.humidity)
+    }
 
     useEffect(()=>{
-        update_widget_humidity(props1.per)
-    },[]);
-
+        setTimeout(
+            ()=>{
+                get_current_weather("Minsk",update_weather)
+                setInterval(
+                    ()=>{
+                        get_current_weather("Minsk",update_weather)
+                    }
+                    , 3600 * 1000);
+            }, );
+    },[var1])
 
     return (
         <div className="container">
@@ -40,4 +53,4 @@ const C_humid=(props1)=> {
 
 }
 
-export default C_humid;
+export default Humid;

@@ -1,8 +1,26 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useState, useMemo} from 'react';
+import {get_current_weather} from "../all/api/openweatherapi";
 
 
-const C_wind=(props3)=> {
+const Wind=()=> {
     const [wind_str, setWstr] = useState("0MPS");
+    const var1 = useMemo(()=>"some",[]);
+    function update_weather(current)
+    {
+        update_wind_widget(current.wind_str,current.wind_dir);
+    }
+    useEffect(()=>{
+
+        setTimeout(
+            ()=>{
+                get_current_weather("Minsk",update_weather)
+                setInterval(
+                    ()=>{
+                        get_current_weather("Minsk",update_weather)
+                    }
+                    , 3600 * 1000);
+            }, );
+    },[var1])
     function update_wind_widget(strength, dir)
     {
         const arrow = document.getElementById('arrrow');
@@ -59,10 +77,6 @@ const C_wind=(props3)=> {
         setWstr(strength.toString() + 'mps');
         document.getElementById('w_strength').innerHTML = strength.toString() + 'mps';
     }
-    useEffect(()=>{
-        update_wind_widget(props3.str,props3.dir);
-    },[]);
-
     return (
         <div className="container-1">
             <div className="compass">
@@ -153,4 +167,4 @@ const C_wind=(props3)=> {
 
 }
 
-export default C_wind;
+export default Wind;

@@ -1,7 +1,17 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useState, useMemo} from 'react';
+import {get_current_weather} from "../all/api/openweatherapi";
 
 
-const C_temp=(props) => {
+const Temp=()=> {
+    const var1 = useMemo(()=>"some",[]);
+
+    const [temp, setTemp] = useState("");
+    const [state, setState] = useState("");
+
+    function update_weather(current)
+    {
+        update_widget_temp(current.temperature,current.state)
+    }
     const [date, setDate] = useState("");
     const [month, setMonth] = useState("");
     const [day, setDay] = useState("");
@@ -34,7 +44,8 @@ const C_temp=(props) => {
         }
         let second = '">'
         document.getElementById('weather_icon').innerHTML = first + name + second
-
+        setTemp(temp) ;
+        setState(state);
     }
     function update_time()
     {
@@ -57,8 +68,8 @@ const C_temp=(props) => {
         setMonth(months[myDate.getMonth()]);
         setDay((myDate.getDate()).toString());
     }
+
     useEffect(()=>{
-        update_widget_temp(props.temp,props.state)
         update_time()
         let date = new Date();
         let sec = date.getSeconds();
@@ -71,30 +82,38 @@ const C_temp=(props) => {
                 }
             }, 60 * 1000);
         }, (60 - sec) * 1000);
-    },[])
+        setTimeout(
+            ()=>{
+                get_current_weather("Minsk",update_weather)
+                setInterval(
+                    ()=>{
+                        get_current_weather("Minsk",update_weather)
+                    }
+                    , 3600 * 1000);
+            }, );
+    },[var1])
 
+    return (
+        <article className="widget">
 
-        return (
-            <article className="widget">
-
-                <div id="weather_icon" className="weatherIcon">
-                    <div id="w_icon" className="temperature_icon"></div>
-                </div>
-                <div className="weatherData">
-                    <p id="temperature" className="temperature-1">{props.temp}&deg;</p>
-                    <p id="weather_state" className="description">{props.state}</p>
-                    <p id="city" className="city">Minsk, Belarus</p>
-                </div>
-                <div className="date-w">
-                    <p className="month" id="month">{month}</p>
-                    <p className="day" id="day">{day}</p>
-                </div>
-                <time>
-                    <p id="date">{date}</p>
-                </time>
-            </article>
-        );
+            <div id="weather_icon" className="weatherIcon">
+                <div id="w_icon" className="temperature_icon"></div>
+            </div>
+            <div className="weatherData">
+                <p id="temperature" className="temperature-1">{temp}&deg;</p>
+                <p id="weather_state" className="description">{state}</p>
+                <p id="city" className="city">Minsk, Belarus</p>
+            </div>
+            <div className="date-w">
+                <p className="month" id="month">{month}</p>
+                <p className="day" id="day">{day}</p>
+            </div>
+            <time>
+                <p id="date">{date}</p>
+            </time>
+        </article>
+    );
 
 }
 
-export default C_temp;
+export default Temp;

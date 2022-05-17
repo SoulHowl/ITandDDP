@@ -1,7 +1,8 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useState, useMemo} from 'react';
+import {get_current_weather} from "../all/api/openweatherapi";
 
 
-const C_press = (props2)=> {
+const Press=()=> {
     const [pres, setPres] = useState("23");
     function update_pressure_widget(pres)
     {
@@ -27,10 +28,23 @@ const C_press = (props2)=> {
 
         //document.getElementById('number').innerHTML = pressure.toString()
     }
-    useEffect(()=>{
-       update_pressure_widget(props2.press)
-    },[]);
 
+    const var1 = useMemo(()=>"some",[]);
+    function update_weather(current)
+    {
+        update_pressure_widget(current.pressure)
+    }
+    useEffect(()=>{
+        setTimeout(
+            ()=>{
+                get_current_weather("Minsk",update_weather)
+                setInterval(
+                    ()=>{
+                        get_current_weather("Minsk",update_weather)
+                    }
+                    , 3600 * 1000);
+            }, );
+    },[var1])
     return (
         <div className="with-digits">
             <div className="upper-digit">
@@ -59,4 +73,4 @@ const C_press = (props2)=> {
 
 }
 
-export default C_press;
+export default Press;
