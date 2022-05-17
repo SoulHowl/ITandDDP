@@ -40,7 +40,7 @@ const Auth=()=> {
                 </form>
             </section>
         );
-    }else{ return <User/>}
+    }else{ return <div className="under-root"><Navbar /><User/></div>}
 
 }
 

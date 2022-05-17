@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {draw} from "./rose_draw";
-import {useAuth} from "../all/api/useAuth";
-import {get_three_days_wind, get_wind_data} from "../all/api/openweatherapi";
 import Forecast from "./c_forecast";
 
 
@@ -11,13 +9,9 @@ const C_dialog = ()=>{
         setClose(!not_close)
     }
     useEffect(()=>{
-            (function () {
                 try{
-                    const svgns = "http://www.w3.org/2000/svg";
-                    const svg = document.querySelector("svg");
                     draw()}
-                catch (e){
-                }})();
+                catch (e){}
     },[])
     if(not_close)
     {
