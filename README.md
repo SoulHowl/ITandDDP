@@ -75,4 +75,9 @@ Added authorization functionality working with Farebase API (folder all/api)
 Added weather data collection functionality working with OpenWeatherMap API (folder all/api)
 - Used in forecast_page/js/rose_draw, main_page/js/Current_weather
 
+
+<h1> lab6 </h1>:
+
+remake of proj with react
+
 link: https://weather-8b64a.web.app/

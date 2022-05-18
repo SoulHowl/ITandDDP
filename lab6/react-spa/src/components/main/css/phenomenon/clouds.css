@@ -1,0 +1,22 @@
+html,body{
+    height: 100%;
+    /*background-color: #4cc0ec;*/
+    /*animation-name: sky;*/
+    /*animation-duration: 100s;*/
+    /*animation-timing-function: linear;*/
+    /*animation-delay: 0s;*/
+    /*animation-iteration-count: infinite;*/
+}
+.wallpaper{
+    animation-name: sky;
+    animation-duration: 100s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+.canvas_clouds {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+}
